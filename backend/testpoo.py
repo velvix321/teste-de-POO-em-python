@@ -19,24 +19,22 @@ class lapis:
 
 cor = input("qual a cor do seu lapis? ")
 tipo = input("qual o tipo do seu lapis? ")
-
-
 lapis1 = lapis(cor, tipo)
-
 
 def muda_cor():
     while True:
-        decisao = input("quer mudar de cor? reponda com sim ou nao")
+        decisao = input("quer mudar de cor? reponda com sim ou nao").lower()
         if decisao == "sim":
              return input("qual cor voce vai colocar? ")
         elif decisao == "nao":
             print("a cor nao sera alterada")
-            break
+            return None
         else:
-            print("insira sim ou nao") 
+            print("insira 'sim' ou 'nao'.") 
 
-muda_cor()
-nova_cor = muda_cor
-lapis1 = lapis.altera(nova_cor, nova_cor)
 
+nova_cor = muda_cor()
+if nova_cor:
+    lapis1.altera(nova_cor)
 print(lapis1)
+#teste de commit
